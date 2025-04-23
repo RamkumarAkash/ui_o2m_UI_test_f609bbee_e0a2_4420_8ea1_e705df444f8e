@@ -2,7 +2,7 @@ import * as React from "react";
 import { useEffect, useState } from "react";
 import authConfig from "config/authConfig.json";
 import { useNavigate } from "react-router-dom";
-import { GenerateOTP, LoginUser, SignupUser} from "shared/services";
+import { GenerateOTP, LoginUser, SignupUser, VerifyOTP } from "shared/services";
 import LogoIcon from "assets/Logo.png";
 import { Image } from "components";
 import { OTPForm, RenderAuthControls } from "./childs";
@@ -79,7 +79,6 @@ const Component = (props) => {
        const { email, mobile, password, type } = newRow;
        window.Busy(true);
        const res = await VerifyOTP({type : type.toUpperCase(), otp});
-       window.Busy(false);
        if(res.status){
           const loginRes = await LoginUser({ userName: newRow[type], password: password });
           window.Busy(false);
@@ -93,6 +92,7 @@ const Component = (props) => {
             window.AlertPopup("success", "You are signed up successfully!");
           }
          } else {
+           window.Busy(false);
            window.AlertPopup("error", "Invalid OTP please try again");
          }
 

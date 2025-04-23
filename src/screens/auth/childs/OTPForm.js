@@ -69,7 +69,7 @@ const Component = (props) => {
               Verify Code
             </Typography>
             <Typography variant="body1">
-              Code is sent to {row?.Email}        
+              Code is sent to {row[type]}        
             </Typography>
             <Typography variant="body1" sx={{ color: '#536075CC' }}>
               We have sent a 4-digit OTP to your registered email or mobile number
