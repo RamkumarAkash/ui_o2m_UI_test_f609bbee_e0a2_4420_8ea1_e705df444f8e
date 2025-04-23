@@ -1,0 +1,154 @@
+{
+
+"petcarecenter": [
+    {
+        "key": "PcId",
+        "type": "keyid",
+        "UIComponentTitle": "PetCareCenter"
+    }
+    
+    ,{
+        "key": "Address",
+        "label": "Address",
+        "type": "text",
+        "editable": true,
+        "validators": [
+                    ]
+                            }
+    ,{
+        "key": "Name",
+        "label": "Name",
+        "type": "text",
+        "editable": true,
+        "validators": [
+                    ]
+                            }
+    ,{
+        "key": "Description",
+        "label": "Description",
+        "type": "text",
+        "editable": true,
+        "validators": [
+                    ]
+                            }
+    ,{
+        "key": "BranchName",
+        "label": "BranchName",
+        "type": "text",
+        "editable": true,
+        "validators": [
+                    ]
+                            }
+    ,{
+        "key": "Latitude",
+        "label": "Latitude",
+        "type": "text",
+        "editable": true,
+        "validators": [
+             "isFloat"
+, "isPositive"
+        ]
+                            }
+    ,{
+        "key": "Longitude",
+        "label": "Longitude",
+        "type": "text",
+        "editable": true,
+        "validators": [
+             "isFloat"
+, "isPositive"
+        ]
+                            }
+    ,{
+        "key": "Pincode",
+        "label": "Pincode",
+        "type": "text",
+        "editable": true,
+        "validators": [
+             "isNumber"
+, "isPositive"
+        ]
+                            }
+    ,{
+        "key": "IsOperational",
+        "label": "IsOperational",
+        "type": "check",
+        "editable": true,
+        "validators": [
+             "isTruthy"
+        ]
+                            }
+    ,{
+        "key": "NearbyLocation",
+        "label": "NearbyLocation",
+        "type": "text",
+        "editable": true,
+        "validators": [
+                    ]
+                            }
+    ,{
+        "key": "Logo",
+        "label": "Logo",
+        "type": "doc",
+        "accept": ".JPG,.JPEG,.PNG,.PDF,.TXT,.DOC,.DOCX,.XLS,.XLSX",
+        "width": "30%",
+        "editable": true,
+        "validators": [
+                    ]
+                            }
+]
+
+,"petpets": [
+    {
+        "key": "PetId",
+        "type": "keyid",
+        "UIComponentTitle": "Pets",
+        "child": true,
+        "parent": "pet",
+        "property": "Pets",
+        "values": []
+    }
+    ,{
+        "key": "PetName",
+        "label": "PetName",
+        "type": "text",
+        "editable": true,
+        "validators": [
+                    ]
+                            }
+    ,{
+        "key": "Weight",
+        "label": "Weight",
+        "type": "text",
+        "editable": true,
+        "validators": [
+             "isFloat"
+, "isPositive"
+        ]
+                            }
+    ,{
+        "key": "Breed",
+        "label": "Breed",
+        "type": "text",
+        "editable": true,
+        "validators": [
+                    ]
+                            }
+    ,{
+        "key": "AnimalType",
+        "label": "AnimalType",
+        "type": "text",
+        "editable": true,
+        "validators": [
+                    ]
+                            }
+    ,{
+        "key": "Gender",
+        "label": "Gender",
+        "type": "text",
+        "editable": true,
+        "validators": [
+                    ]
+                            }
+]
+}
