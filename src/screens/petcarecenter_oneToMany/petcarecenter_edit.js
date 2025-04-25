@@ -106,6 +106,7 @@ const Component = (props) => {
                 let oValues = Object.keys(m);
                 let newFldList = [];
                 oValues.forEach(z => {
+                    if(z === "Deleted") newFldList.push({ key : "Deleted", value : true  })
                     let fld = _org.find(k => k.key === z);
                     if (fld) {
                         fld.value = m[z];
@@ -159,7 +160,7 @@ const Component = (props) => {
             let _data = updateChild[i];
                         let PetsPetCareCenterMapId = null;
             if (_data.Deleted && !Helper.IsNullValue(_data.PetId)) {
-                PetsPetCareCenterMapId = petcarecenterPets.find(x => x.PetId === _data.PetId && x.PcId === petCareCenterId).Id;
+                PetsPetCareCenterMapId = petCareCenterPets.find(x => x.PetId === _data.PetId && x.PcId === petCareCenterId).Id;
             }
             rslt = await Support.AddOrUpdatePetCareCenterPets(PetsPetCareCenterMapId, petCareCenterId, _data);
             bAllStatus = !bAllStatus ? rslt.status : bAllStatus;

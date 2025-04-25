@@ -84,7 +84,7 @@ const Component = (props) => {
                 m.value = _nValue;
             })
             setConfigInfo(tmpInfo);
-            //setNewItem(selectedRow);
+            setNewItem(selectedRow);
             setState(!state);
         }
         setActions({ id, action: type });
