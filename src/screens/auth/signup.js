@@ -78,7 +78,7 @@ const Component = (props) => {
    const handleConfirmOTP = async (otp) => {
        const { email, mobile, password, type } = newRow;
        window.Busy(true);
-       const res = await VerifyOTP({type : type.toUpperCase(), otp});
+       const res = await VerifyOTP(type, otp);
        if(res.status){
           const loginRes = await LoginUser({ userName: newRow[type], password: password });
           window.Busy(false);

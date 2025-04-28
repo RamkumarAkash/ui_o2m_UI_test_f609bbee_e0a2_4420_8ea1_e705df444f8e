@@ -27,6 +27,8 @@ const GetEntityInfo = async (name) => {
     });
 }
 const GenerateOTP = async (userId,type,data) => {
+    let _type = 'EMAIL';
+    if(type === 'mobileNumber') _type = 'SMS';
     return new Promise(async (resolve) => {
         let url = `${springSecurityApi}/users/${userId}/start-verifications`;
 
@@ -36,7 +38,7 @@ const GenerateOTP = async (userId,type,data) => {
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify({ types : [type.toUpperCase()] }),
+            body: JSON.stringify({ types : [_type] }),
           });
   
         if (res.status === 200 || res.status === 204) {
@@ -52,7 +54,9 @@ const GenerateOTP = async (userId,type,data) => {
     });
 };
   
-const VerifyOTP = async (data) => {
+const VerifyOTP = async (type, otp) => {
+    let _type = 'EMAIL';
+    if(type === 'mobileNumber') _type = 'SMS';
     const userId = session.Retrieve("userId");
     return new Promise(async (resolve) => {
       let url = `${springSecurityApi}/users/${userId}/verify`;
@@ -63,13 +67,12 @@ const VerifyOTP = async (data) => {
           headers: {
             "Content-type": "application/json",
           },
-          body: JSON.stringify(data),
+          body: JSON.stringify({type : _type, otp}),
         });
        
         if (res.status === 200 || res.status === 202) {
-          return resolve({ status: res.ok, values: json || false });
+          return resolve({ status: res.ok, values: false });
         }
-        debugger;
         const json = await res.json();
         return resolve({ status: false, statusText: json.error.message });
       } catch (error) {
